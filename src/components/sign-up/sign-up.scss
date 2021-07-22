@@ -1,0 +1,62 @@
+.Sign-up {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+
+  &-form {
+
+    &-email-input {
+      width: 400px;
+      background-color:rgb(238,241,239) ;
+      height: 30px;
+      outline: none;
+      border: none;
+       margin-bottom: 40px;
+    }
+
+    &-password-input {
+      width: 400px;
+      background-color: rgb(238,241,239);
+      height: 30px;
+      outline: none;
+      border: none;
+      margin-bottom: 40px;
+    }
+
+    &-repeat-password-input {
+      width: 400px;
+      background-color: rgb(238,241,239);
+      height: 30px;
+      outline: none;
+      border: none;
+    }
+
+    &-btn {
+      display: flex;
+      justify-content: center;
+
+      & > .btnSign_up {
+        background-color: rgb(125,152,161);
+        height: 40px;
+        width: 200px;
+        margin-top: 40px;
+        color: white;
+        font-size: 17px;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+}
+
+.Sign-up-h1 {
+  margin-top: 10vh;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.text {
+  margin-bottom: 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  color: rgb(94,101,114);
+}
