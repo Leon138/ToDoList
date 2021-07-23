@@ -26,10 +26,10 @@ export const logoutBtn = () => {
   }
 
   logoutBtn.onclick = () => {
-    window.location.reload();
     removeToken();
     removeUserEmail();
     logoutBtn.remove();
+    window.location.href = routes.sign_in;
   };
 
 }

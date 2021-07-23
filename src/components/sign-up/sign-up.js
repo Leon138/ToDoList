@@ -9,6 +9,7 @@ export const signUpHandler = () => {
   const password_2 = document.getElementById('password_2');
   const signUpBtn = document.querySelector('.btnSign_up');
   const emailInput = document.getElementById('email');
+  const repeatPassword = document.querySelector('.Sign-up-form-repeat-password-password');
   
   signUpForm.addEventListener('submit', event => {
     event.preventDefault();
@@ -37,36 +38,29 @@ export const signUpHandler = () => {
 
   signUpBtn.setAttribute('disabled', true);
 
-  password_1.oninput = () => {
-    if (passwordValidator(password_1.value)) {
-      formValid.password1.isValid = true;
-    } else {
-      formValid.password1.isValid = false;
-    }
-
-    checkFormValid();
-  }
-
   emailInput.oninput = () => {
-    if (emailValidator(emailInput.value)) {
-      formValid.email.isValid = true;
-    } else {
-      formValid.email.isValid = false;
-    }
-
+    emailValidator(emailInput.value) ? formValid.email.isValid = true : formValid.email.isValid = false;
     checkFormValid();
   }
-  
-  const checkFormValid = () => {
-    const isFormValid = Object.values(formValid).every(value => value.isValid);
-    isFormValid ? signUpBtn.removeAttribute('disabled'): signUpBtn.setAttribute('disabled', true);
+
+  password_1.oninput = () => {
+    passwordValidator(password_1.value) ? formValid.password1.isValid = true : formValid.password1.isValid = false;
+    checkFormValid();
   }
 
   password_2.oninput = () => {
-    if (password_1.value === password_2.value) {
+    if (formValid.password1.isValid  && (password_1.value === password_2.value)) {
       formValid.password2.isValid = true;
       signUpBtn.removeAttribute('disabled');
-    } else signUpBtn.setAttribute('disabled', true);
+    } else {
+      signUpBtn.setAttribute('disabled', true);
+    
+    }
   }
 
+  const checkFormValid = () => {
+    const isFormValid = Object.values(formValid).every(value => value.isValid);
+    isFormValid ? signUpBtn.removeAttribute('disabled') : signUpBtn.setAttribute('disabled', true);
+  }
+  
 }

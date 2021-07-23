@@ -38,28 +38,18 @@ export const signInHandler = () => {
   });
 
   passwordInput.oninput = () => {
-    if (passwordValidator(passwordInput.value)) {
-      formValid.password.isValid = true;
-    } else {
-      formValid.password.isValid = false;
-    }
-
+    passwordValidator(passwordInput.value) ? formValid.password.isValid = true : formValid.password.isValid = false;
     checkFormValid();
   }
 
   emailInput.oninput = () => {
-    if (emailValidator(emailInput.value)) {
-      formValid.email.isValid = true;
-    } else {
-      formValid.email.isValid = false;
-    }
-
+    emailValidator(emailInput.value) ? formValid.email.isValid = true : formValid.email.isValid = false;
     checkFormValid();
   }
   
   const checkFormValid = () => {
     const isFormValid = Object.values(formValid).every(value => value.isValid);
-    isFormValid ? signInBtn.removeAttribute('disabled'): signInBtn.setAttribute('disabled', true);
+    isFormValid ? signInBtn.removeAttribute('disabled') : signInBtn.setAttribute('disabled', true);
   }
 
 }

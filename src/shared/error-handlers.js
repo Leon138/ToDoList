@@ -1,4 +1,3 @@
-
 export const showErrorNotification = error => {
   const notification = document.createElement('div');
   const body = document.getElementsByTagName('body')[0];
