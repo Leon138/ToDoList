@@ -13,8 +13,8 @@ window.onload = () => {
     case paths.home:
       loginBtn();
       logoutBtn();
-      getNameList();
-      addTask();
+      // getNameList();
+      // addTask();
       break;
     case paths.sign_in:
       signInHandler();

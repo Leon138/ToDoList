@@ -14,16 +14,24 @@
     <div class="Sign-up">
       <form class="Sign-up-form">
         <div class="Sign-up-form-email">
-          <div class="text">E—Mail</div>
+          <div class="Sign-up-form-email-wrapper">
+            <div class="text">E—Mail</div>
+            <div class="Sign-up-form-email-error">Incorrect e-mail template</div>
+          </div>
           <input type="email" class="Sign-up-form-email-input" id="email" required autocomplete="off">
         </div>
         <div class="Sign-up-form-password">
-          <div class="text">Password</div>
+          <div class="Sign-up-form-password-wrapper">
+            <div class="text">Password</div>
+            <div class="Sign-up-form-password-error">Password must consists of 6 numbers</div>
+          </div>
           <input title="password must consists of 6 numbers" id="password_1" placeholder="password must consists of 6 numbers" class="Sign-up-form-password-input" required autocomplete="off">
         </div>
         <div class="Sign-up-form-repeat-password">
-          <div class="text">Repeat Password</div>
-          <div class="Sign-up-form-repeat-password-password"></div>
+          <div class="Sign-up-form-repeat-password-wrapper">
+            <div class="text">Repeat Password</div>
+            <div class="Sign-up-form-repeat-password-error"><strong>Passwords are not equal</strong></div>
+          </div>
           <input  class="Sign-up-form-repeat-password-input" id="password_2" required autocomplete="off">
         </div>
         <div class="Sign-up-form-btn">
@@ -31,5 +39,6 @@
         </div>
       </form>
     </div>
+    <div class="error-mesagges"></div>
   </body>
 </html>

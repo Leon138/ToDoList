@@ -1,10 +1,12 @@
 .wrapper {
   margin-top: 10vh;
-}
 
-.wrapper > h1 {
-  font-family: 'Josefin Sans', sans-serif;
+  & > .Sign-in-h1 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Josefin Sans', sans-serif;
   margin-bottom: 6vh;
+  }
 }
 
 .Sign-in {

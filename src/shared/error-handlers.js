@@ -6,3 +6,11 @@ export const showErrorNotification = error => {
   body.append(notification);
   setTimeout( () => notification.style.display = 'none', 3000);
 }
+
+export const signUpErrorEmail = error => {
+  const errorMesagges = document.querySelector('.error-mesagges');
+  errorMesagges.innerText = error.message;
+  errorMesagges.className = 'error-mesagges';
+  setTimeout( () => errorMesagges.style.display = 'flex', 10);
+  setTimeout( () => errorMesagges.style.display = 'none', 4000);
+}

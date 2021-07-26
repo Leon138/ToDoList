@@ -4,29 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
     <title>To_Do_List</title>
   </head>
   <body>
+    <div class="header">
+      <div class="header-text">ToDoList</div>
+        <img src="../image/round_account_circle_white_36dp.png" alt="">
+    </div>
     <div class="header-btn">
       <button id="loginBtn" class="header-btn-login">Login</button>
       <button id="logoutBtn" class="header-btn-logout">Logout</button>
     </div>
-    <div class="Lists">
+    <!-- <div class="Lists">
       <input type="text" class="NameLists" placeholder="Name list"  maxlength="18">
       <div class="Lists__todo"></div>
-    </div>
-      <h1>ToDoList</h1>
-      <div class="input">
-        <div class="input__wrapper">
-          <input type="text" class="inputTask" required autocomplete="off" placeholder="Task">
+    </div> -->
+          <!-- <input type="text" class="inputTask" required autocomplete="off" placeholder="Task"> -->
+    <div class="wrapper-content">
+      <div class="wrapper-content-block-1">
+        <div class="vertical">
+          <div class="vertical-line"></div>
         </div>
-        <div class="button_wrapper">
-          <button class="btnAddTask">Add task</button>
+        <div class="horizontal">
+          <div class="horizontal-line"></div>
         </div>
       </div>
-      <div class="outputTask"></div>
+    </div> 
   </body>
 </html>

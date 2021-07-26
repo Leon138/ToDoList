@@ -13,6 +13,10 @@ module.exports = {
       template: './src/index.html'
     }),
     new HTMLWebpackPlugin({
+      filename: 'home-page.html',
+      template: './src/components/home-page/home-page.html'
+    }),
+    new HTMLWebpackPlugin({
       filename: 'sign-in.html',
       template: './src/components/sign-in/sign-in.html'
     }),
