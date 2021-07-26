@@ -1,4 +1,4 @@
-import { addTask } from './shared/tasks'
+import { addTask } from './shared/tasks';
 import { getNameList } from './shared/list';
 import { routes, paths } from './shared/constants/routes';
 import { signInHandler } from './components/sign-in/sign-in';
@@ -26,5 +26,5 @@ window.onload = () => {
       default:
       break;
   }
-  
+
 }
