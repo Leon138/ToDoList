@@ -12,14 +12,22 @@ module.exports = {
       filename: 'index.html',
       template: './src/index.html'
     }),
-    // new HTMLWebpackPlugin({
-    //   filename: 'sign-in.html',
-    //   template: './src/components/sign-in/sign-in.html'
-    // }),
-    // new HTMLWebpackPlugin({
-    //   filename: 'sign-up.html',
-    //   template: './src/components/sign-up/sign-up.html'
-    // }),
+    new HTMLWebpackPlugin({
+      filename: 'home-page.html',
+      template: './src/components/home-page/home-page.html'
+    }),
+    new HTMLWebpackPlugin({
+      filename: 'sign-in.html',
+      template: './src/components/sign-in/sign-in.html'
+    }),
+    new HTMLWebpackPlugin({
+      filename: 'sign-up.html',
+      template: './src/components/sign-up/sign-up.html'
+    }),
+    new HTMLWebpackPlugin({
+      filename: 'recovery.html',
+      template: './src/components/recovery/recovery.html'
+    }),
   ],
   module: {
     rules: [
