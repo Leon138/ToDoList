@@ -32,9 +32,6 @@ module.exports = {
       filename: 'todolist.html',
       template: './src/components/todo-list/todolist.html'
     }),
-      filename: 'index.html',
-      template: './src/index.html'
-    }),
   ],
   module: {
     rules: [
@@ -53,8 +50,7 @@ module.exports = {
           }
         ]
       },
-      }
-    ]
+     ]
   },
   devServer: {
     port: 4200
