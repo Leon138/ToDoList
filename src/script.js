@@ -11,7 +11,6 @@ import './styles/styles.scss';
 window.onload = () => {
   const pathname = Object.values(paths).find( path => path === window.location.pathname );
 
-
   switch(pathname) {
     case paths.home:
       const token = getToken();

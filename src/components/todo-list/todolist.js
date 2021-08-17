@@ -45,35 +45,31 @@ export const ToDoList = () => {
     todolistContent.appendChild(blockAdd);
   });
 
-  radio1.addEventListener('click', () => {
-    todolist.style.background = '#c9c1cc'; 
-    footer.style.background = '#c9c1cc'; 
-    todolistHeaderInput.style.background = '#c9c1cc'; 
+  radio1.addEventListener('click', () => { 
+    radioColor('#c9c1cc');
   });
 
   radio2.addEventListener('click', () => {
-    todolist.style.background = '#9DB4C6'; 
-    footer.style.background = '#9DB4C6'; 
-    todolistHeaderInput.style.background = '#9DB4C6'; 
+    radioColor('#9DB4C6');
   });
 
   radio3.addEventListener('click', () => {
-    todolist.style.background = '#C1CAA6'; 
-    footer.style.background = '#C1CAA6'; 
-    todolistHeaderInput.style.background = '#C1CAA6'; 
+    radioColor('#C1CAA6');
   });
 
   radio4.addEventListener('click', () => {
-    todolist.style.background = '#B3B8B5'; 
-    footer.style.background = '#B3B8B5'; 
-    todolistHeaderInput.style.background = '#B3B8B5'; 
+    radioColor('#B3B8B5');
   });
 
   radio5.addEventListener('click', () => {
-    todolist.style.background = '#CDBDBD'; 
-    footer.style.background = '#CDBDBD'; 
-    todolistHeaderInput.style.background = '#CDBDBD'; 
+    radioColor('#CDBDBD');
   });
+
+  const radioColor = color => {
+    todolist.style.background = color; 
+    footer.style.background = color; 
+    todolistHeaderInput.style.background = color; 
+  }
 
     function displayTask() {
     const todolistContent = document.querySelector('.todolist-wrapper');
