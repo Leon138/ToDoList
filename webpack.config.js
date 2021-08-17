@@ -9,17 +9,29 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
+      filename: 'home-page.html',
+      template: './src/components/home-page/home-page.html'
+    }),
+    new HTMLWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html'
     }),
-    // new HTMLWebpackPlugin({
-    //   filename: 'sign-in.html',
-    //   template: './src/components/sign-in/sign-in.html'
-    // }),
-    // new HTMLWebpackPlugin({
-    //   filename: 'sign-up.html',
-    //   template: './src/components/sign-up/sign-up.html'
-    // }),
+    new HTMLWebpackPlugin({
+      filename: 'sign-in.html',
+      template: './src/components/sign-in/sign-in.html'
+    }),
+    new HTMLWebpackPlugin({
+      filename: 'sign-up.html',
+      template: './src/components/sign-up/sign-up.html'
+    }),
+    new HTMLWebpackPlugin({
+      filename: 'recovery.html',
+      template: './src/components/recovery/recovery.html'
+    }),
+    new HTMLWebpackPlugin({
+      filename: 'todolist.html',
+      template: './src/components/todo-list/todolist.html'
+    }),
   ],
   module: {
     rules: [
@@ -37,8 +49,8 @@ module.exports = {
             }
           }
         ]
-      }
-    ]
+      },
+     ]
   },
   devServer: {
     port: 4200
