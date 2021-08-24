@@ -11,7 +11,14 @@
   <body>
     <div class="header">
       <div class="header-text">ToDoList</div>
+
+      <div class="header-user">
+        <div class="header-user-name"></div>
+        <img src="/image/round_account_circle_white_36dp.png" class="user" alt="">
+      </div>
+
       <img src="/image/round_account_circle_white_36dp.png" class="user" alt="">
+
     </div>  
     <div class="user-info">
       <div class="user-info-line">
@@ -25,8 +32,22 @@
         </a>
         <img class="todolist-header-img-star" src="/image/star.png" alt="">
         <img class="todolist-header-img-star-black" src="/image/star_black_24dp.png" alt="">
+
+        <input class="todolist-header-input-block-name" placeholder="Change list’s name" type="text">
+        <img class="todolist-header-img-burger-menu" src="/image/burger-menu.png" alt="">  
+        <div class="todolist-header-img-burger-menu-sort">
+          <div class="todolist-header-img-burger-menu-sort-name">Sort tasks</div>
+          <div class="todolist-header-img-burger-menu-sort-az">by name A—Z</div>
+          <div class="todolist-header-img-burger-menu-sort-za">by name Z—A</div>
+          <div class="todolist-header-img-burger-menu-sort-nf">newest first</div>
+          <div class="todolist-header-img-burger-menu-sort-of">oldest first</div>
+          <div class="todolist-header-img-burger-menu-sort-cf">completed first</div>
+          <div class="todolist-header-img-burger-menu-sort-uf">unfulfilled first</div>
+        </div> 
+
         <input class="todolist-header-input" placeholder="Change list’s name" type="text">
         <img class="todolist-header-img-burger-menu" src="/image/burger-menu.png" alt="">   
+
       </div>
       <div class="todolist-wrapper">
         <div class="todolist-add">

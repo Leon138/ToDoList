@@ -16,6 +16,14 @@ export const signUpHandler = () => {
   signUpForm.addEventListener('submit', event => {
     event.preventDefault();
 
+
+    const user = {
+      email: emailInput.value,
+      password: password_1.value
+    }
+
+    signUp(user);
+
     signUp(emailInput.value, password_1.value)
       .then(response => {
         if (response) {
@@ -24,6 +32,7 @@ export const signUpHandler = () => {
           window.location.href = routes.home_page;
         }
       });
+
   });
 
   const formValid = {
