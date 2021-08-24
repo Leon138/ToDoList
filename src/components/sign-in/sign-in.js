@@ -1,5 +1,9 @@
 import { signIn } from '../../api/api-handlers';
+
 import { setToken, setUID } from '../../shared/ls-services';
+
+import { setToken } from '../../shared/ls-services';
+
 import { routes } from '../../shared/constants/routes';
 import { passwordValidator, emailValidator } from '../../shared/validators';
 
@@ -23,7 +27,21 @@ export const signInHandler = () => {
   signInForm.addEventListener('submit', event => {
     event.preventDefault();
 
+
     signIn(emailInput.value, passwordInput.value);
+
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    signIn(email, password).then( responce => {
+      if (responce) {
+        const { idToken: token } = responce.data;
+        setToken(token);
+        window.location.href = routes.home_page;
+      }
+
+    });
+
 
   });
 

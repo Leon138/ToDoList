@@ -4,6 +4,7 @@ import { firebaseConfig, DataBaseURL, authUrl } from './api-config';
 import { showErrorNotification, signUpErrorEmail } from '../shared/error-handlers';
 import { routes } from '../shared/constants/routes';
 import { getUID, setPersonalData, setToken, setUID, setUserId, getUserId, getPersonalData, setBlockId, getBlockId } from '../shared/ls-services';
+import { setToken, setUID } from '../shared/ls-services';
 import axios from 'axios';
 
 const headers = {
@@ -22,6 +23,7 @@ export const signIn = (email, password) => {
     password,
     returnSecureToken: true
   })
+
     .then(response => {
       if (response) {
         const { idToken: token, localId } = response.data;
@@ -30,10 +32,14 @@ export const signIn = (email, password) => {
         getUser().then( () => window.location.href = routes.home_page);
       }
     }) 
+
+    .then(response => response)
+
     .catch(err => {
       showErrorNotification(err);
     }); 
 }
+
 
 export const createAuthData = (email, password) => {
   return firebase
@@ -70,6 +76,17 @@ export const signUp = async user => {
   }
 }
 
+export const signUp = async (email, password) => {
+  return firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then(response => response)
+    .catch(err => {
+      signUpErrorEmail(err);
+    });
+}
+
+
 export const passwordRecovery = email => {
   firebase.auth().sendPasswordResetEmail(email)
     .then( setTimeout( () => window.location.href = routes.sign_in, 5000))
@@ -77,17 +94,28 @@ export const passwordRecovery = email => {
 }
 
 export const createTask = task => {
+
   const { name, date, Time, input_value, blockId, userId } = task;
+
+  const { taskValue, complited, date, Time} = task;
+
   return fetch (`${DataBaseURL}/task.json`,
     {
       method: 'POST',
       headers,
       body: JSON.stringify({
+
         userId,
         name,
         date,
         Time,
         input_value,
+
+        taskValue, 
+        complited, 
+        date,
+        Time
+        
       })
     }
   )
@@ -95,7 +123,11 @@ export const createTask = task => {
 };
 
 export const getTask = () => {
+
   return fetch(`${DataBaseURL}/task.json`,
+
+  return fetch(`${DataBaseURL}/todos.json`,
+
     { 
       method: 'GET',
       headers
@@ -107,11 +139,16 @@ export const getTask = () => {
       const transformedTaskArr = Object.keys(result).map( key => ({
         ...result[key],
         id: key
+
       }));
+
+      }))
+
       return transformedTaskArr;
     };
   });
 };
+
 
 export const deleteTask = async ({ id }) => {
   return fetch(
@@ -194,3 +231,4 @@ export const deleteBlock = async ({ id }) => {
   )
   .then(response => response.json())
 };
+

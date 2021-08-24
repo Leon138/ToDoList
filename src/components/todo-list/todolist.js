@@ -1,18 +1,30 @@
 import moment from 'moment';
+
 import { createTask, getTask, deleteTask, getUsers, getBlock } from '../../api/api-handlers';
 import { getPersonalData, getUID, setBlockId, getBlockId } from '../../shared/ls-services';
+
+import { createTask } from '../../api/api-handlers';
+
 
 export const ToDoList = () => {
   const dropDown = document.querySelector('.user-info');
   const user = document.querySelector('.user');
+
   const imgBurger = document.querySelector('.todolist-header-img-burger-menu');
   const divSort = document.querySelector('.todolist-header-img-burger-menu-sort');
+
+  const todolistContent = document.querySelector('.todolist-wrapper');
+
   const blockAdd = document.querySelector('.todolist-add');
   const blockAddImg = document.querySelector('.todolist-add-img');
   const todolist = document.querySelector('.todolist');
   const imgStar = document.querySelector('.todolist-header-img-star');
   const imgStarBackground = document.querySelector('.todolist-header-img-star-black');
+
   const todolistHeaderInput = document.querySelector('.todolist-header-input-block-name');
+
+  const todolistHeaderInput = document.querySelector('.todolist-header-input');
+
   const footer = document.querySelector('.footer');
   const radio1 = document.querySelector('.footer-form-span-1');
   const radio2 = document.querySelector('.footer-form-span-2');
@@ -40,14 +52,20 @@ export const ToDoList = () => {
     }
   });    
 
+
   imgBurger.addEventListener('click', () => {
     divSort.classList.toggle('sort-block');
   });
+
+
 
   blockAddImg.addEventListener('click', () => {
     if (arrtask.length <= 99) {
       displayTask();
     }
+
+    todolistContent.appendChild(blockAdd);
+
   });
 
   radio1.addEventListener('click', () => { 
@@ -76,6 +94,7 @@ export const ToDoList = () => {
     todolistHeaderInput.style.background = color; 
   }
 
+
   const displayTask = async () => {
     const todolistContent = document.querySelector('.todolist-wrapper');
     const divContent = document.createElement('div');
@@ -99,9 +118,25 @@ export const ToDoList = () => {
 
     arrtask.push(task);
 
+    function displayTask() {
+    const todolistContent = document.querySelector('.todolist-wrapper');
+    const blockAddImg = document.querySelector('.todolist-add-img');
+    const divContent = document.createElement('div');
+    const divCircle = document.createElement('div');
+    const contentInput = document.createElement('div');
+    const input = document.createElement('input');
+    const imgDelet = document.createElement('img');
+    const line = document.createElement('div');
+
+    imgDelet.src = '/image/close.png'; 
+    input.placeholder = 'Change Text';
+    input.type = 'text';
+
+
     divContent.className = 'todolist-wrapper-content';
     divCircle.className = 'todolist-wrapper-content-circle';
     contentInput.className = 'todolist-wrapper-content-input';
+
     input.className = 'todolist-header-input';
     imgDelet.className = 'todolist-wrapper-content-input-img';
     line.className = 'todolist-wrapper-content-input-line';
@@ -109,13 +144,25 @@ export const ToDoList = () => {
     imgDelet.src = '/image/close.png'; 
     input.placeholder = 'Change Text';
     input.maxLength = 200;
+
+    input.className = 'todolist-wrapper-content-input-task';
+    imgDelet.className = 'todolist-wrapper-content-input-img';
+    line.className = 'todolist-wrapper-content-input-line';
+
    
     todolistContent.append(divContent);
     divContent.appendChild(divCircle);
     divContent.appendChild(contentInput);
+
     contentInput.append(line, input, imgDelet);
     todolistContent.appendChild(blockAdd);
   
+
+    contentInput.append(line);
+    contentInput.appendChild(input);
+    contentInput.appendChild(imgDelet);
+
+
     imgDelet.onclick = function () {
       divContent.remove();
     }
@@ -125,6 +172,7 @@ export const ToDoList = () => {
       input.classList.toggle('task-color');
       line.classList.toggle('line-display');
     });
+
 
     input.oninput = () => {
       task.input_value = input.value;
@@ -194,3 +242,24 @@ export const renderTask = async () => {
   });
 
 }
+
+    arrtask.push(divContent);
+
+    const task = {
+      taskValue: null,
+      complited: false,
+      date: null,
+      Time: null,
+    }
+
+    blockAddImg.addEventListener('click', () => {
+      task.taskValue = input.value;
+      task.date = moment().format();
+      task.Time = moment().format('LTS');
+      createTask(task);
+    });
+
+  }
+  
+}
+

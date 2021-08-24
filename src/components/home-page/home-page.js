@@ -1,9 +1,14 @@
 import { routes } from '../../shared/constants/routes';
+
 import { createTask, getTask, deleteTask, getUsers, createBlock, getBlock, deleteBlock} from '../../api/api-handlers';
 import { getPersonalData, getUID, setBlockId, getBlockId } from '../../shared/ls-services';
 import moment from 'moment';
 
 export const createLists = () => {
+
+
+export const dropDownList = () => {
+
   const dropDown = document.querySelector('.user-info');
   const user = document.querySelector('.user');
   const content = document.querySelector('.wrapper-content');
@@ -22,10 +27,17 @@ export const createLists = () => {
     if (arrcontent.length <= 99) {
       displayBlockList();
     }
+
   });  
   
   const displayBlockList = async () => {
     const addBlock = document.querySelector('.wrapper-content-block-add');
+
+    content.appendChild(addBlock);
+  });  
+  
+  function displayBlockList() {
+
     const divContent = document.createElement('div');
     const divNameList = document.createElement('div');
     const inputNameList = document.createElement('input');
@@ -35,6 +47,7 @@ export const createLists = () => {
     const imgStarBackground = document.createElement('img');
     const taskList = document.createElement('div');
     const ul = document.createElement('ul');
+
     const li_1 = document.createElement('li');
     const li_2 = document.createElement('li');
     const li_3 = document.createElement('li');
@@ -59,6 +72,12 @@ export const createLists = () => {
 
     arrcontent.push(block);
 
+
+    const li = document.createElement('li');
+    const input = document.createElement('input');
+    const a = document.createElement('a');
+
+
     imgStar.src = '/image/star.png';
     imgStarBackground.src = '/image/star_black_24dp.png';
     imgEdit.src = '/image/edit.png';
@@ -79,6 +98,7 @@ export const createLists = () => {
     divContent.appendChild(divNameList);
     divNameList.appendChild(a);
     a.appendChild(imgEdit);
+
     divNameList.append(imgStar, imgStarBackground, inputNameList, imgDelete);
     divContent.appendChild(taskList);
     taskList.append(ul);
@@ -88,6 +108,21 @@ export const createLists = () => {
     li_3.append(input_3);
     li_4.append(input_4);
     content.appendChild(addBlock);
+
+    divNameList.append(imgStar);
+    divNameList.append(imgStarBackground);
+    divNameList.appendChild(inputNameList);
+    divNameList.appendChild(imgDelete);
+    divContent.appendChild(taskList);
+    taskList.append(ul);
+    ul.appendChild(li);
+    li.append(input);
+    li.insertAdjacentHTML('beforebegin', '<li><input type="text"></li>');
+    li.insertAdjacentHTML('afterend', '<li><input type="text"></li>');
+    li.insertAdjacentHTML('afterend', '<li><input type="text"></li>');
+    
+    arrcontent.push(divContent);
+
 
     imgEdit.addEventListener('click', () => {
       window.location.href = routes.todolist;
@@ -117,6 +152,10 @@ export const createLists = () => {
         if (btnYes) {
           divContent.remove();
           arrcontent.splice(index, 1);
+
+
+          console.log(arrcontent);
+
           warningBlock.style.display = 'none';  
         }
       }
@@ -126,6 +165,7 @@ export const createLists = () => {
         }
       }
     });
+
 
     divContent.oninput = () => {
       // block.name = inputNameList.value;
@@ -276,4 +316,9 @@ export const setUserInfo = () => {
   const pUserName = document.querySelector('.header-user-name');
   const userName = `${getPersonalData().email}`;
   pUserName.innerText = userName; 
+}
+
+    
+  }
+
 }

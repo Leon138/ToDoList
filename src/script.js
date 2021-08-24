@@ -2,9 +2,16 @@ import { routes, paths } from './shared/constants/routes';
 import { signInHandler } from './components/sign-in/sign-in';
 import { signUpHandler } from './components/sign-up/sign-up';
 import { logoutBtn } from './components/profile/profile';
+
 import { createLists, renderBlockList, setUserInfo } from './components/home-page/home-page';
 import { recovery } from './components/recovery/recovery';
 import { ToDoList, renderTask } from './components/todo-list/todolist';
+import { getToken } from './shared/ls-services';
+
+
+import { dropDownList } from './components/home-page/home-page';
+import { recovery } from './components/recovery/recovery';
+import { ToDoList } from './components/todo-list/todolist';
 import { getToken } from './shared/ls-services';
 
 import './styles/styles.scss';
@@ -17,7 +24,11 @@ window.onload = () => {
       const token = getToken();
       if (token) {
         window.location.href = routes.home_page;
+
       } else window.location.href = routes.sign_up;
+
+
+      }
 
       break;
     case paths.sign_in:
@@ -27,15 +38,22 @@ window.onload = () => {
       signUpHandler();
       break;
     case paths.home_page:
+
       createLists();
       renderBlockList();
       setUserInfo();
+
+      dropDownList();
+
       logoutBtn();
       break;  
     case paths.todolist:
       ToDoList();
+
       renderTask();
       setUserInfo();
+
+
       logoutBtn();
       break;
     case paths.recovery:

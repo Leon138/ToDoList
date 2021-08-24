@@ -18,6 +18,7 @@ export const setUID = id => localStorage.setItem('uid', id);
 
 export const getUID = () => localStorage.getItem('uid');
 
+
 export const setUserId = id => localStorage.setItem('userId', id);
 
 export const getUserId = () => localStorage.getItem('userId');
@@ -25,3 +26,8 @@ export const getUserId = () => localStorage.getItem('userId');
 export const setBlockId = id => localStorage.setItem('blockId', id);
 
 export const getBlockId = () => localStorage.getItem('blockId');
+
+export const setUserId = id => localStorage.setItem('iserId', id);
+
+export const getUserId = () => localStorage.getItem('iserId');
+

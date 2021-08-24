@@ -8,6 +8,7 @@
     margin: 0px 50px 25px 50px;
     border-bottom: 1px solid;
 
+
     &-user {
       display: flex;
       align-items: center;
@@ -57,6 +58,18 @@
         font-family: 'Josefin Sans', sans-serif;
         text-align: center;  
       }
+
+    > input {
+      width: 100%;
+      margin-right: 58px;
+      height: 35px;
+      border: none;
+      outline: none;
+      background-color: rgb(237,242,222);
+      font-size: 30px;
+      font-family: 'Josefin Sans', sans-serif;
+      text-align: center;
+
     }
 
     &-img {
@@ -75,6 +88,7 @@
 
       &-burger-menu {
         margin-right: 10px;
+
 
         &-sort {
           display: none;
@@ -163,6 +177,8 @@
 
       &-burger-menu:hover {
         cursor: pointer;
+
+
       }
     }
   }
@@ -204,13 +220,20 @@
         &-task {
           margin: 12px 1px 12px 8px;
           width: 98%;
+
           // height: 34px;
+
+          height: 34px;
+
           font-size: 20px;
           color: black;
           background-color: rgb(229,229,229);
           border: none;
           outline: none;
+
           resize: none;
+
+
           font-family: 'Josefin Sans', sans-serif;
         }
   
@@ -252,9 +275,11 @@
   }
 }
 
+
 .sort-block {
   display: block;
 }
+
 
 .footer {
   background-color: rgb(237,242,222);
